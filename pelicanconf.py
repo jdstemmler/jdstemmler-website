@@ -2,13 +2,19 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 import os
+import datetime
 
 AUTHOR = u'Jayson Stemmler'
 SITENAME = u'Jayson Stemmler'
 SITEURL = ''
 
-THEME_DIR = os.path.join(os.getenv("HOME"), 'Documents/Blogging/pelican-themes')
-THEME = os.path.join(THEME_DIR, 'Flex')
+COPYRIGHT_NAME = "Jayson Stemmler"
+COPYRIGHT_YEAR = datetime.datetime.today().strftime('%Y')
+
+# THEME_DIR = os.path.join(os.getenv("HOME"), 'Documents/Blogging/pelican-themes')
+# THEME = os.path.join(THEME_DIR, 'Flex')
+
+THEME = 'themes/Flex'
 
 USE_FOLDER_AS_CATEGORY = True
 
