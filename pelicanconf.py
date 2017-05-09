@@ -5,7 +5,7 @@ import os
 
 AUTHOR = u'Jayson Stemmler'
 SITENAME = u'Jayson Stemmler'
-SITEURL = '/'
+SITEURL = ''
 
 THEME_DIR = os.path.join(os.getenv("HOME"), 'Documents/Blogging/pelican-themes')
 THEME = os.path.join(THEME_DIR, 'Flex')
@@ -48,6 +48,8 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 
 MAIN_MENU = True
 SITELOGO = '/images/profile.jpg'
+
+LINKS = (('Resume', 'https://represent.io/jdstemmler'),)
 
 SOCIAL = (('linkedin', 'https://linkedin.com/in/jdstemmler/en'),
           ('github', 'https://github.com/jdstemmler'))
