@@ -47,7 +47,7 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 ## THEME OPTIONS
 
 MAIN_MENU = True
-SITELOGO = '/images/profile.jpg'
+SITELOGO = '/images/profile.png'
 
 LINKS = (('Resume', 'https://represent.io/jdstemmler'),)
 
