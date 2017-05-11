@@ -70,5 +70,5 @@ MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
              ('Tags', '/tags.html'),)
 
-BROWSER_COLOR = '#333'
+BROWSER_COLOR = '#333333'
 ROBOTS = 'index, follow'
