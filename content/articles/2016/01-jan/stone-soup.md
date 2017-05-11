@@ -2,7 +2,7 @@ Title: Stone Soup
 Date: January 11, 2016
 Author: Jayson Stemmler
 Category: Data Science
-Tags: cooking, data science, web scraping, python
+Tags: cooking, web scraping, python
 
 When I'm not doing data science, one of the things I like to do is cook.
 Often times when I finish a recipe I'm left with a handful of leftover
