@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="http://jdstemmler.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://jdstemmler.com/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://jdstemmler.com/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="http://jdstemmler.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Jayson Stemmler Atom">
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333">
+
+<meta name="author" content="Jayson Stemmler" />
+<meta name="description" content="In June of 2015 I attended Seattle Data Day in downtown Seattle and learned a number of interesting new things about python and data science. One of the sessions I attended was a workshop on web scraping with python presented by Ryan Mitchell. At the end, we were encouraged to …" />
+<meta name="keywords" content="soccer, python, web scraping">
+
+<meta property="og:site_name" content="Jayson Stemmler"/>
+<meta property="og:title" content="MLS Standings"/>
+<meta property="og:description" content="In June of 2015 I attended Seattle Data Day in downtown Seattle and learned a number of interesting new things about python and data science. One of the sessions I attended was a workshop on web scraping with python presented by Ryan Mitchell. At the end, we were encouraged to …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://jdstemmler.com/posts/2016/Feb/mls-standings"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2016-02-05 00:00:00-08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://jdstemmler.com/author/jayson-stemmler.html">
+<meta property="article:section" content="Data Visualizations"/>
+<meta property="article:tag" content="soccer"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="web scraping"/>
+<meta property="og:image" content="/images/profile.png">
+
+  <title>Jayson Stemmler &ndash; MLS Standings</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://jdstemmler.com">
+        <img src="/images/profile.png" alt="" title="">
+      </a>
+      <h1><a href="http://jdstemmler.com"></a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="http://jdstemmler.com/pages/about#about">About</a></li>
+          <li><a href="http://jdstemmler.com/pages/contact#contact">Contact</a></li>
+
+          <li><a href="https://represent.io/jdstemmler" target="_blank">Resume</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://linkedin.com/in/jdstemmler/en" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/jdstemmler" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="http://jdstemmler.com">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="http://jdstemmler.com/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="mls-standings">MLS Standings</h1>
+    <p>
+          Posted on Fri 05 February 2016 in <a href="http://jdstemmler.com/category/data-visualizations.html">Data Visualizations</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>In June of 2015 I attended Seattle Data Day in downtown Seattle and learned a number of interesting new things about python and data science. One of the sessions I attended was a workshop on <a href="http://shop.oreilly.com/product/0636920034391.do" target="_blank">web scraping with python</a> presented by <a href="http://www.pythonscraping.com/node/5" target="_blank">Ryan Mitchell</a>. At the end, we were encouraged to pick a site and play around with scraping and getting the data into python.</p>
+<p>My site of choice was the Major League Soccer <a href="http://www.mlssoccer.com/results" target="_blank">results map</a> for the current season. As a big fan of soccer (specifically, the Seattle Sounders) I thought it would be fun to play around with some of the league standings for the current season and make some plots of not only the most recent standings, but the standings throughout the season. With that, I'll show some plots and talk a little bit about how the W/L/D gets converted into points. Oh, and all the code for this can be found over on my personal GitHub page <a href="https://github.com/jdstemmler/mls-standings" target="_blank">in this repository</a>.</p>
+<h2>The web scraper</h2>
+<p>The function of the web scraper is actually pretty simple. It goes out to the page and fetches the table. From there, the python code parses the table by going through each of the rows and collecting the win-loss-draw information for each game number. It then converts each win, loss, and draw into 3, 1, or zero points respectively. It then saves this information out to a .csv file.</p>
+<h2>Plots</h2>
+<p>Now the fun part. Here is a plot of the standings by team for each game in the season. It's a little bit messy, but rather informative. On the x-axis is the game number with the cumulative number of points each team has on the y-axis. Lines are colored by team in the legend on the right side of the plot.
+<a href="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/standings_by_game.png" title="MLS Point Standings"><img alt="MLS Point Standings" src="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/standings_by_game.png" title="MLS Point Standings"></a></p>
+<p>I have a lot of fun looking at this plot. You can clearly see in some teams when they went on winning or losing streaks, how many games each team has played, and generally get a sense of the performance throughout the season. However, the plot is quite cluttered. I chose the colors for each team based off of a best-guess of the representative color for the team, but there are obviously some similarities in the colors which makes it difficult to differentiate between some teams.</p>
+<p>If we don't really care about how a team has performed throughout the season, we can take a look at only the most recent reporting of the number of points for each team. Additionally, it is of interest to know which teams will make the playoffs at the end of the season (top 6 from both the Western and Eastern conferences) and how well the conferences are doing compared to one another.</p>
+<p><a href="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/current_points_standings.png" title="Current Point Standings"><img alt="Current Point Standings" src="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/current_points_standings.png" title="Current Point Standings"></a></p>
+<p>This plot clearly shows all those metrics. Western conference in red on the left, Eastern in blue on the right, sorted by total number of points with dotted black lines on each of the conferences to show the cutoff point of the playoffs. What this figure doesn't really convey as well as the first plot is the disparity between the teams with respect to the number of games played. D.C. United, for example, has played 7 more games (at the time of this writing) than the Montreal Impact and thus has the potential to have 21 additional points simply because they've played more games.</p>
+<p>This next figure shows similar information as above, but with a few small tweaks. To help address the issue of the games-played difference, these standings show the number of points each team had at the most recent game that all teams have played. The lighter colors, then, show how many points each team has earned since that game, if they've played additional games.</p>
+<p><a href="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/level_game_points_standings.png" title="Level Games"><img alt="Level Game Points Standings" src="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/level_game_points_standings.png" title="Level Games"></a></p>
+<p>This plot could really use some additional information, such as just exactly how many additional games each team has played and not just points. But it does give you a better sense of the standings at the most recent point in time when all teams had played the same number of games.</p>
+<p>One way to get around this issue entirely is to look at average points per game (PPG). This is exactly what it sounds like - total number of points divided by the total number of games played. This essentially ranks teams by the mean <em>slope</em> of the line shown all the way back in the first plot. Doing this gives you yet another way to look at the standings:</p>
+<p><a href="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/ppg_standings.png" title="Points per Game"><img alt="Points per Game Standings" src="https://storage.googleapis.com/jdstemmler-blog-images/2016/02/mls-standings/ppg_standings.png" title="Points per Game"></a></p>
+<h2>Summary</h2>
+<p>These plots are obviously a little bit out of date by this point, but they get the points across. However, if you click-through to the linked images those should be updated within the last 6 hours. I have this script running on a server that pulls down the standings and makes the plots at that frequency, so you can never be without the most recent standings!</p>
+<p>I hope you enjoyed looking through this. It was a really great learning experience to combine the web scraping component with some sports. There is so much more you could do with this data, such as looking at the performance of Western conference teams vs Eastern when they play in-conference or out, longest winning or losing (or tying) streaks, or even looking at data from previous seasons.</p>
+<p>Feel free to comment with any suggestions for things to look at or improvements to any of my methods. I welcome your feedback!</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://jdstemmler.com/tag/soccer.html">soccer</a>
+      <a href="http://jdstemmler.com/tag/python.html">python</a>
+      <a href="http://jdstemmler.com/tag/web-scraping.html">web scraping</a>
+    </p>
+  </div>
+
+
+
+    <div class="addthis_relatedposts_inline">
+
+
+</article>
+
+    <footer>
+<p>&copy; 2017 Jayson Stemmler</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Jayson Stemmler ",
+  "url" : "http://jdstemmler.com",
+  "image": "/images/profile.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
