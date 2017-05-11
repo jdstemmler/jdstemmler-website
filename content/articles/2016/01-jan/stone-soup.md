@@ -27,7 +27,7 @@ individual donated ingredients from many of the townsfolk.
 
 Let's see this in action. There's a simple web interface:
 
-![Stone Soup homepage]({filename}/images/stone-soup/homepage.png)
+![Stone Soup homepage](https://storage.googleapis.com/jdstemmler-blog-images/2016/01/stone-soup/homepage.jpg)
 
 The search box takes in a comma separated list of ingredients that you'd like
 to search for. Recipe categories can be selected via the check-boxes below the
@@ -35,7 +35,7 @@ search box.
 
 The results page presents up to 12 recipes that match the search:
 
-![Stone Soup results]({filename}/images/stone-soup/results.png)
+![Stone Soup results](https://storage.googleapis.com/jdstemmler-blog-images/2016/01/stone-soup/results.jpg)
 
 Clicking on a recipe takes the user to the webpage for that recipe in a new tab
 where they can do with it what they want.
