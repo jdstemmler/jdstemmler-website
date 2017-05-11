@@ -7,6 +7,12 @@ import datetime
 AUTHOR = u'Jayson Stemmler'
 SITENAME = u'Jayson Stemmler'
 SITEURL = ''
+SITENAME = "Jayson Stemmler's Blog"
+SITETITLE = 'Jayson Stemmler'
+SITESUBTITLE = 'Research / Data Scientist'
+SITEDESCRIPTION = ''
+# SITELOGO = SITEURL + '/images/profile.png'
+# FAVICON = SITEURL + '/images/favicon.ico'
 
 COPYRIGHT_NAME = "Jayson Stemmler"
 COPYRIGHT_YEAR = datetime.datetime.today().strftime('%Y')
