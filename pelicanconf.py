@@ -58,8 +58,11 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 
 ## THEME OPTIONS
 
+DISQUS_SITENAME = "jdstemmlerblog"
+GOOGLE_ANALYTICS = "UA-99010895-1"
+
 MAIN_MENU = True
-SITELOGO = '/images/profile.png'
+SITELOGO = 'https://storage.googleapis.com/jdstemmler-blog-images/profile.png'
 
 LINKS = (('Resume', 'https://represent.io/jdstemmler'),)
 
